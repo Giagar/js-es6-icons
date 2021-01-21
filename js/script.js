@@ -119,17 +119,29 @@ const colorsList = [
     { people: "purple" },
 ]
 
-// riprova in es6
-let iconsWithColorsList = [];
+// versione es5
+// let iconsWithColorsList = [];
 
-for(let i = 0; i < iconsList.length; i++) {
-    for(let l = 0; l < colorsList.length; l++) {
-        if(iconsList[i].type, colorsList[l][iconsList[i].type]) {
-            iconsWithColorsList.push({ ...iconsList[i], color: colorsList[l][iconsList[i].type] })
-        }
-    }
-}
-// /riprova in es6
+// for(let i = 0; i < iconsList.length; i++) {
+//     for(let l = 0; l < colorsList.length; l++) {
+//         if(iconsList[i].type, colorsList[l][iconsList[i].type]) {
+//             iconsWithColorsList.push({ ...iconsList[i], color: colorsList[l][iconsList[i].type] })
+//         }
+//     }
+// }
+// /versione es5
+
+// versione es6
+let iconsWithColorsList = iconsList.map(objIcons => {
+
+    let colorProp = colorsList.filter(objColors => {
+        // console.log("p",objColors[objIcons.type])
+        return objColors[objIcons.type];
+    })
+
+    return {...objIcons, color: colorProp[0][objIcons.type]};
+});
+// /versione es6
 
 iconsContainer.innerHTML = "";
 
@@ -186,7 +198,6 @@ $("select#icons").change(function() {
     } else {
         displayIcons(iconsWithColorsList);
     }
-
 });
 
 

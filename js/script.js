@@ -74,6 +74,7 @@ iconsWithColorsList.forEach(el => {
 });
 
 // MILESTONE 3
+// creazione select dinamico
 let selectContent = '<option value="all">All</option>';
 
 colorsList.forEach(el => {
@@ -82,3 +83,43 @@ colorsList.forEach(el => {
 })
 
 $("select#icons").html(selectContent);
+
+// cambiare contenuto icons-container in seguito a scelta select
+$("select#icons").change(function() {
+    // prendo valore select
+    let selectionValue = $(this).val();
+
+    // pulisco icons-container
+    iconsContainer.innerHTML = "";
+
+    if(selectionValue !== "all") {
+        let iconsSelected = iconsWithColorsList.filter(obj => {
+            return obj.type === selectionValue;
+        });
+    
+        iconsSelected.forEach(el => {
+            const {name, prefix, family, color} = el;
+        
+            let icon = `
+                <div class="icon-container">
+                    <i class="${family} ${prefix}${name}" style="color: ${color};"></i> <br/>
+                    <span>${name}</span>
+                </div>`
+            
+            iconsContainer.innerHTML += icon;
+        });
+    } else {
+        iconsWithColorsList.forEach(el => {
+            const {name, prefix, family, color} = el;
+        
+            let icon = `
+                <div class="icon-container">
+                    <i class="${family} ${prefix}${name}" style="color: ${color};"></i> <br/>
+                    <span>${name}</span>
+                </div>`
+            
+            iconsContainer.innerHTML += icon;
+        });
+    }
+
+});

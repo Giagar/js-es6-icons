@@ -146,6 +146,20 @@ iconsWithColorsList.forEach(el => {
 });
 
 // ---- MILESTONE 3
+function displayIcons(arr) {
+    arr.forEach(el => {
+        const {name, prefix, family, color} = el;
+        
+        let icon = `
+        <div class="icon-container">
+        <i class="${family} ${prefix}${name}" style="color: ${color};"></i> <br/>
+        <span>${name}</span>
+        </div>`
+        
+        iconsContainer.innerHTML += icon;
+    });
+}
+
 // creazione select dinamico
 let selectContent = '<option value="all">All</option>';
 
@@ -167,30 +181,12 @@ $("select#icons").change(function() {
         let iconsSelected = iconsWithColorsList.filter(obj => {
             return obj.type === selectionValue;
         });
-    
-        iconsSelected.forEach(el => {
-            const {name, prefix, family, color} = el;
-        
-            let icon = `
-                <div class="icon-container">
-                    <i class="${family} ${prefix}${name}" style="color: ${color};"></i> <br/>
-                    <span>${name}</span>
-                </div>`
-            
-            iconsContainer.innerHTML += icon;
-        });
+
+        displayIcons(iconsSelected);
     } else {
-        iconsWithColorsList.forEach(el => {
-            const {name, prefix, family, color} = el;
-        
-            let icon = `
-                <div class="icon-container">
-                    <i class="${family} ${prefix}${name}" style="color: ${color};"></i> <br/>
-                    <span>${name}</span>
-                </div>`
-            
-            iconsContainer.innerHTML += icon;
-        });
+        displayIcons(iconsWithColorsList);
     }
 
 });
+
+

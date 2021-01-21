@@ -52,7 +52,6 @@ let iconsWithColorsList = [];
 
 for(let i = 0; i < iconsList.length; i++) {
     for(let l = 0; l < colorsList.length; l++) {
-        console.log(iconsList[i].type, colorsList[l][iconsList[i].type])
         if(iconsList[i].type, colorsList[l][iconsList[i].type]) {
             iconsWithColorsList.push({ ...iconsList[i], color: colorsList[l][iconsList[i].type] })
         }
@@ -73,3 +72,13 @@ iconsWithColorsList.forEach(el => {
     
     iconsContainer.innerHTML += icon;
 });
+
+// MILESTONE 3
+let selectContent = '<option value="all">All</option>';
+
+colorsList.forEach(el => {
+    selectContent += `<option value="${Object.keys(el)[0]}">${Object.keys(el)[0]}</option>`;
+    console.log(selectContent)
+})
+
+$("select#icons").html(selectContent);

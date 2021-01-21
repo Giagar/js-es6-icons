@@ -150,8 +150,7 @@ iconsWithColorsList.forEach(el => {
 let selectContent = '<option value="all">All</option>';
 
 colorsList.forEach(el => {
-    selectContent += `<option value="${Object.keys(el)[0]}">${Object.keys(el)[0]}</option>`;
-    console.log(selectContent)
+    selectContent += `<option class="fontStyle" value="${Object.keys(el)[0]}">${Object.keys(el)[0]}</option>`;
 })
 
 $("select#icons").html(selectContent);

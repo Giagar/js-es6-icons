@@ -1,6 +1,74 @@
-.icon-container {
-    width: 50px;
-    outline: 1px solid lightblue;
-    text-align: center;
-    padding: 5px;
+html {
+    font-family: Arial, Helvetica, sans-serif;
 }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---- STYLE */
+/* _header */
+header {
+    color: rgb(110, 203, 235);
+    height: 50px;;
+    line-height: 50px;
+    padding-left: 10px;
+}
+
+/* _select */
+.selectContainer {
+    background-color: rgb(110, 203, 235);
+    height: 50px;
+    line-height: 50px;
+    color: white;
+    text-align: center;
+}
+
+/* ???? non funzia ???? */
+.selectContainer .fontStyle {
+    text-transform: capitalize !important;
+}
+
+/* _icons-container */
+.icons-container {
+    background-color: lightgray;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: calc(100vh - 100px);
+    padding: 15px;
+}
+
+/* !!!! cambia nome !!!! */
+.icon-container {
+  width: 150px;
+  height: 64px;
+  background-color: white;
+  border-radius: 6px;
+  /* outline: 1px solid lightblue; */
+  text-align: center;
+  /* padding: 5px; */
+  box-shadow: 1px 1px 4px grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* flex-wrap: nowrap; */
+  
+}
+
+.icon-container i {
+    flex: 1;
+    font-size: 24px;
+}
+
+.icon-container span {
+    flex: 1;
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+
+
+

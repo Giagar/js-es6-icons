@@ -131,17 +131,27 @@ const colorsList = [
 // }
 // /versione es5
 
-// versione es6
+// versione es6 (map + filter)
 let iconsWithColorsList = iconsList.map(objIcons => {
-
     let colorProp = colorsList.filter(objColors => {
-        // console.log("p",objColors[objIcons.type])
         return objColors[objIcons.type];
     })
 
     return {...objIcons, color: colorProp[0][objIcons.type]};
 });
 // /versione es6
+
+// versione es6 (map + for of)
+// let iconsWithColorsList = iconsList.map(objIcons => {
+
+//     for (let objColors of colorsList) {
+//         if(objColors[objIcons.type]) {
+//             return {...objIcons, color: objColors[objIcons.type]};
+//         }
+//     }
+
+// });
+// /versione es6 (map + for of)
 
 iconsContainer.innerHTML = "";
 
